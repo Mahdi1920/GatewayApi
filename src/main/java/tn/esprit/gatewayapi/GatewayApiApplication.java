@@ -15,8 +15,8 @@ public class GatewayApiApplication {
 	@Bean
 	public RouteLocator myRoutes(RouteLocatorBuilder builder) {
 		return builder.routes()
-				.route(p -> p.path("/api/candidat/**").uri("http://127.0.0.1:8082"))
-				.route(p -> p.path("/api/quiz/**").uri("http://127.0.0.1:8081"))
+				.route(p -> p.path("/api/candidat/**").uri("lb://CANDIDATMS"))
+				.route(p -> p.path("/api/quiz/**").uri("lb://QUIZMS"))
 				.build();
 	}
 }
